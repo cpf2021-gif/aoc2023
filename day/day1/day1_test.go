@@ -5,8 +5,8 @@ import (
 )
 
 func TestQ1(t *testing.T) {
-	day1 := NewDay1(TestMode)
-	var have int64 = day1.Q1()
+	day := NewDay1(TestMode)
+	var have int64 = day.Q1()
 	var want int64 = 142
 
 	if want != have {
@@ -15,8 +15,8 @@ func TestQ1(t *testing.T) {
 }
 
 func TestQ2(t *testing.T) {
-	day1 := NewDay1(TestMode)
-	var have int64 = day1.Q2()
+	day := NewDay1(TestMode)
+	var have int64 = day.Q2()
 	var want int64 = 281
 
 	if want != have {
