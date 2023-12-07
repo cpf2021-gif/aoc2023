@@ -1,10 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"text/template"
-	"flag"
 )
 
 func main() {
@@ -17,10 +17,10 @@ func main() {
 	flag.Parse()
 
 	data := struct {
-		Day string
+		Day      string
 		Filename string
 	}{
-		Day: dayNamePrefix + num,
+		Day:      dayNamePrefix + num,
 		Filename: fileNamePrefix + num,
 	}
 
@@ -43,7 +43,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 
 	mainFilename := data.Filename + ".go"
 	newFile, err := os.Create(dirName + "/" + mainFilename)
