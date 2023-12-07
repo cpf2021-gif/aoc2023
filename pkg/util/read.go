@@ -15,3 +15,11 @@ func ReadByLine(filename string) []string {
 
 	return lines
 }
+
+func ReadBytes(filename string) []byte {
+	context, err := os.ReadFile(filename)
+	if err != nil {
+		panic(err)
+	}
+	return context
+}
