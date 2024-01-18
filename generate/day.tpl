@@ -25,7 +25,8 @@ func New{{.Day}}(m mode) *{{.Day}} {
 }
 
 func (d *{{.Day}}) Q1() int64 {
-	if d.mode == TestMode { d.Data = util.ReadByLine("./data/{{.Filename}}_q1_test.txt")
+	if d.mode == TestMode { 
+		d.Data = util.ReadByLine("./data/{{.Filename}}_q1_test.txt")
 	} else {
 		d.Data = util.ReadByLine("./data/{{.Filename}}_input.txt")
 	}
