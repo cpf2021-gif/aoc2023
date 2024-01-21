@@ -215,11 +215,21 @@ func traverse(pipeMap [][]Node, node Idx, visited []Idx, steps int) (int, []Idx)
 func isInside(pipeMap [][]Node, loopPoints []Idx, point Idx) bool {
 	var nCrossings int
 
+	// 使用射线法判断点是否在多边形内
 	for _, loopPoint := range loopPoints {
 		if loopPoint.row == point.row && loopPoint.col > point.col &&
 			(pipeMap[loopPoint.row][loopPoint.col].print() == '|' ||
+				// 射线与多边形的边界重合
+				// 1. '7' 和 'L' 一起出现时，只能算一次
+				// . -------- └-┐
 				pipeMap[loopPoint.row][loopPoint.col].print() == '7' ||
+
+				//	2. 'J' 和 'F'  一起出现时，只能算一次
+				// . -------- ┌-┘
+
 				pipeMap[loopPoint.row][loopPoint.col].print() == 'F') {
+			// 但 '7' 和 'F' 一起出现时，需要算两次
+			// . -------- ┌-┐
 			nCrossings += 1
 
 		}
